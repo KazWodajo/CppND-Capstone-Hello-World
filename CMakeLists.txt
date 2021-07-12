@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.18 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.13 FATAL_ERROR)
 
 project(ShoppingCart LANGUAGES CXX)
 
@@ -8,14 +8,18 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
 set(CMAKE_PREFIX_PATH $ENV{QTDIR})
 find_package(Qt5 REQUIRED
 	COMPONENTS Core
 				Widgets
-)#------------------------INCLUSION OF PROJECT FILES----------------------#
+)
+
+#------------------------INCLUSION OF PROJECT FILES----------------------#
 set(FORMS_DIR "${CMAKE_SOURCE_DIR}/forms")
 set(INCLUDE_DIR "${CMAKE_SOURCE_DIR}/include")
 set(SOURCE_DIR "${CMAKE_SOURCE_DIR}/src")
+set(RESOURCES_DIR "${CMAKE_SOURCE_DIR}/resources")
 
 include_directories(${FORMS_DIR})
 include_directories(${INCLUDE_DIR})
@@ -23,7 +27,7 @@ include_directories(${SOURCE_DIR})
 
 file(GLOB_RECURSE SOURCES
 	"${FORMS_DIR}/*.ui"
-	"${FORMS_DIR}/*.qrc"
+	"${RESOURCES_DIR}/*.qrc"
 	"${INCLUDE_DIR}/*.h"
 	"${SOURCE_DIR}/*.cpp"
 )
@@ -38,7 +42,8 @@ set_property(DIRECTORY APPEND PROPERTY COMPILE_DEFINITIONS
 set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_AUTOUIC_SEARCH_PATHS} ${FORMS_DIR})
 
 # Add the executable
-add_executable(ShoppingCart WIN32 ${SOURCES})
+add_executable(ShoppingCart WIN32 ${SOURCES} )
+
 
 # Add the target includes for ShoppingCart 
 target_include_directories(ShoppingCart PRIVATE ${FORMS_DIR})

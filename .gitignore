@@ -1,1 +1,7 @@
 .github/**
+
+# VS 2019 cache/option directory 
+.vs/
+
+#visual studio 2019 CMake default build directory 
+out/
