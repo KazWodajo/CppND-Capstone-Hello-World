@@ -24,3 +24,28 @@ In this project, you can build your own C++ application starting with this repo,
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./HelloWorld`.
+
+
+1- download abd install QT for open source users. Note: project developed using Qt5.15.2. When selecting componets, include msvc compiler since it will be used by visual studio 2019. 
+https://www.qt.io/download
+watch video https://youtu.be/sEXOkBm_fuo
+Require to sign up with valid email 
+
+2- install Vs 2019 Community 
+https://visualstudio.microsoft.com/vs/
+have conguigrtion properties C++17 or above. 
+
+
+3 - Configure Visual Studio 2019 to use QT 5.
+Follow the instruction using the video below. 
+Note: the part where Qt 5 is added to go to VS->Options->Versions...for the path not stop in msvc2019_64...
+go to bin and qmake
+https://youtu.be/6bXrfVrYyxk
+
+4- add QT to System enviroment. Also add  C:\Qt\5.15.2\msvc2019_64\bin to the Path to avoid error such as The code execution can not proceed because qt5core.dll was not found. 
+
+
+5 - install cmake 
+cmake.org 
+
+
